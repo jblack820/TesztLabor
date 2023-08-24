@@ -33,7 +33,7 @@ public class PreloaderFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labelLoading = lbllLoading;
-        versionLabel.setText(Main.class.getPackage().getImplementationVersion());
+        versionLabel.setText("v" + (Main.class.getPackage().getImplementationVersion()==null? "1.2" : Main.class.getPackage().getImplementationVersion()));
     }
 
     public String start() {

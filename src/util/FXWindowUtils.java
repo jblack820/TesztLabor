@@ -224,7 +224,8 @@ public class FXWindowUtils {
 
     public static void addVersionInfoToDragPane(AnchorPane dragPane) {
         Font font1 = Font.loadFont(Main.class.getResourceAsStream("/font/perpetua.ttf"), 16);
-        Label versionLabel = new Label("v." + Main.class.getPackage().getImplementationVersion());
+        Label versionLabel = new Label("v" + (Main.class.getPackage().getImplementationVersion()==null? "1.2" : Main.class.getPackage().getImplementationVersion()));
+
         versionLabel.setFont(font1);
         dragPane.getChildren().add(versionLabel);
         versionLabel.setLayoutX(110);
