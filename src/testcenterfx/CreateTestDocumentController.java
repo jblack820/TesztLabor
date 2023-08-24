@@ -155,24 +155,10 @@ public class CreateTestDocumentController implements Initializable {
         TestDocumentCreationDTO formData = getFormData();
         String wordFileName = Utils.constructWordDocumentFileName(formData);
         String savePath = createTestDocumentsSavePath();
-        Task<Void> createDocumentTask = new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-                setupCreationProgressWindowLabel(formData);
-                Main.controller.saveTestDocument(formData, savePath, wordFileName);
-                initGC();
-                return null;
-            }
-        };
-        createDocumentTask.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
-                setupProgressPointsLabel();
-                createTestdocumentObjectAndUpdtaeProjectData(currentProject, wordFileName);
-            }
-        });
-        new Thread(createDocumentTask).start();
-
+        setupCreationProgressWindowLabel(formData);
+        Main.controller.saveTestDocument(formData, savePath, wordFileName);
+        setupProgressPointsLabel();
+        createTestdocumentObjectAndUpdtaeProjectData(currentProject, wordFileName);
     }
 
     private void createTestdocumentObjectAndUpdtaeProjectData(TestProject currentProject, String wordFileName) {

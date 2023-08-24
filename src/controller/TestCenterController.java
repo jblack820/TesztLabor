@@ -7,11 +7,10 @@ import config.*;
 import input.LoadSettings;
 import input.LoadTestCenter;
 import input.ReadTemplate;
-import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -24,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -205,11 +203,13 @@ public class TestCenterController {
 //<editor-fold defaultstate="collapsed" desc="CREATE TEST CENTER OBJECT">
 
     public void scanDocumentsAndCreateProjectObjects() {
+        System.out.println("First");
         createArchivedProjectNamesList();
         System.out.println("Starting creating project objects...");
         createProjectObjects(getActiveProjectFolderNames());
         System.out.println("Creating project objects ENDED");
         createTestDocumentObjects();
+        System.out.println("Creating test document objects ENDED");
         createTestCaseObjects();
         updateProjectVersionNumbers();
     }
@@ -346,6 +346,7 @@ public class TestCenterController {
 
             File[] wordDocumentList = getWordFilesFromProjectFolder(currentProject);
             if (wordDocumentList.length > 0) {
+                System.out.println("docs: "+wordDocumentList.length);
                 currentProject.getTestDocuments().addAll(createTestDocumentObjectsFromWordFiles(wordDocumentList));
             }
         }
@@ -423,7 +424,7 @@ public class TestCenterController {
         //loop to create multiple pages
         for (int currentPageID = 1; currentPageID <= formData.getNumberOfPagesRequired(); currentPageID++) {
             //1. get getDefectLogTemplate
-            XWPFDocument document = templateService.getTemplate(AppConfig.TEST_DOC_TEMPLATE_LOCATION);
+            XWPFDocument document = templateService.getTemplate(AppConfig.TEST_DOC_TEMPLATE_NAME);
             //2. fill in current Page
             TestDocumentCreation.fillTestDocument(document, currentTestProject, formData, currentPageID);
             //3. add to repo
@@ -446,7 +447,7 @@ public class TestCenterController {
     public void saveTestDocument(TestDocumentCreationDTO formData, String path) {
         documentRepo.clear();
         for (int currentPageIndex = 1; currentPageIndex <= formData.getNumberOfPagesRequired(); currentPageIndex++) {
-            XWPFDocument document = templateService.getTemplate(AppConfig.TEST_DOC_TEMPLATE_LOCATION);
+            XWPFDocument document = templateService.getTemplate(AppConfig.TEST_DOC_TEMPLATE_NAME);
             TestDocumentCreation.fillTestDocument(document, currentTestProject, formData, currentPageIndex);
             documentRepo.addDocument(document);
         }
@@ -462,7 +463,7 @@ public class TestCenterController {
     public void saveTestDocument(TestDocumentCreationDTO formData, String path, String wordFileName) {
         documentRepo.clear();
         for (int currentPageIndex = 1; currentPageIndex <= formData.getNumberOfPagesRequired(); currentPageIndex++) {
-            XWPFDocument document = templateService.getTemplate(AppConfig.TEST_DOC_TEMPLATE_LOCATION);
+            XWPFDocument document = templateService.getTemplate(AppConfig.TEST_DOC_TEMPLATE_NAME);
             TestDocumentCreation.fillTestDocument(document, currentTestProject, formData, currentPageIndex);
             documentRepo.addDocument(document);
         }
@@ -488,7 +489,7 @@ public class TestCenterController {
     public void createAndSaveDefectLogs(List<TestCase> failedTestCases) {
 
         failedTestCases.forEach(failedTestCase -> {
-            XWPFDocument currentDefectLogTemplate = templateService.getTemplate(AppConfig.DEFECT_LOG_TEMPLATE_LOCATION);
+            XWPFDocument currentDefectLogTemplate = templateService.getTemplate(AppConfig.DEFECT_LOG_TEMPLATE_NAME);
             DefectLogUtils.FillDefectLog(currentDefectLogTemplate, failedTestCase);
             File targetFolder = makeFolderForDefectlog(currentTestProject, failedTestCase);
             saveDefectLog(targetFolder, failedTestCase, currentDefectLogTemplate);
@@ -752,15 +753,15 @@ public class TestCenterController {
         Main.controller.getTestCenter().getARCHIVED_PROJECT_NAMES().clear();
         File directoryPath = new File(testCenter.getFolderStructure().getArchivedProjectsLocation());
         File archivedProjectFolders[] = directoryPath.listFiles();
-        
+
         List<ArchivedProjectName> list = new ArrayList<>();
-        
+
         List<String> folderNames = Arrays.asList(archivedProjectFolders)
                 .stream()
                 .filter(p -> p.isDirectory())
                 .map(p -> p.getName())
                 .collect(Collectors.toList());
-        
+
         for (String folderName : folderNames) {
             
             String projectName = getArchivedProjectNameBasedOnFolderName(folderName);

@@ -42,7 +42,7 @@ public class SaveDocument {
         String mainPart = srcString.substring(srcString.indexOf(">") + 1, srcString.lastIndexOf("<"));
         String sufix = srcString.substring(srcString.lastIndexOf("<"));
         String addPart = appendString.substring(appendString.indexOf(">") + 1, appendString.lastIndexOf("<"));
-        CTBody makeBody = CTBody.Factory.parse(prefix + mainPart + addPart + sufix);
+        CTBody makeBody = (CTBody) CTBody.Factory.parse(prefix + mainPart + addPart + sufix);
         finalBody.set(makeBody);
     }
 

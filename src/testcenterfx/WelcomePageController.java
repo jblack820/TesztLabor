@@ -162,6 +162,7 @@ public class WelcomePageController implements Initializable {
             removeFailedToArchiveProjectsFromArchive(FAILED_TO_ARCHIVE_PROJECTS_LIST);
             FAILED_TO_ARCHIVE_PROJECTS_LIST.clear();
         }
+        System.out.println("Init ended");
     }
 
     private void initStageElements() {

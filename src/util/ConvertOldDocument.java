@@ -41,7 +41,7 @@ public class ConvertOldDocument {
 
             switch (tableNum) {
                 case 1:
-                    targetDocument = Main.controller.getTemplateService().getTemplate(AppConfig.TEST_DOC_TEMPLATE_LOCATION);
+                    targetDocument = Main.controller.getTemplateService().getTemplate(AppConfig.TEST_DOC_TEMPLATE_NAME);
                     formDTO = getDTOFromOldDocument(oldDocumentCurrentTable, ProjectType.WINDOWS_DESKTOP_APPLICATION, "");
                     copyTableONE(formDTO);
                     tableNum++;

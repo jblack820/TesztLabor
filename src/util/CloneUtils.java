@@ -110,7 +110,7 @@ public class CloneUtils {
     }
 
     private static XWPFDocument getNewTemplatePage() {
-        return app.Main.controller.getTemplateService().getTemplate(AppConfig.TEST_DOC_TEMPLATE_LOCATION);
+        return app.Main.controller.getTemplateService().getTemplate(AppConfig.TEST_DOC_TEMPLATE_NAME);
     }
 
     private static void writeTableCell(TableNum tableNum, TableRowNum tableRowNum,

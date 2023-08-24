@@ -259,7 +259,7 @@ public class ListProjectController implements Initializable {
         percColumn.setCellValueFactory((row) -> {
             TestProject tp = row.getValue();
             double progressValue = getProjectProgressValue(tp);
-            String text = getProgressTextFromProgressValue(progressValue);
+            String text = getProgressTextFromProgressValue(progressValue)+"  ";
             return new SimpleStringProperty(text);
         });
 
@@ -305,8 +305,8 @@ public class ListProjectController implements Initializable {
 
         double value = 0.0;
 
-        double total = new Double(tp.getAllTestcases().size());
-        double done = new Double(tp.getAllTestCasesDone().size());
+        double total = Double.valueOf(tp.getAllTestcases().size());
+        double done = Double.valueOf(tp.getAllTestCasesDone().size());
 
         if (total != 0 && done != 0) {
             value = done / total;
