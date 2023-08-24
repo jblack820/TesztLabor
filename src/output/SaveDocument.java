@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.xmlbeans.XmlOptions;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTBody;
-import testcenterfx.CreateTestDocumentController;
+import controller.CreateTestDocumentController;
 //</editor-fold>
 
 public class SaveDocument {

@@ -257,9 +257,6 @@ public class TestProject implements Serializable {
     }
 
     public XWPFDocument getXWPFDocument(File file) {
-
-        System.out.println("searching for file: " + file.getAbsolutePath());
-
         return testDocuments
                 .stream()
                 .filter(p -> p.getWordFile().getAbsolutePath().equalsIgnoreCase(file.getAbsolutePath()))
