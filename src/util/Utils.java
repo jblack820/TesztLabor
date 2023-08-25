@@ -3,7 +3,7 @@ package util;
 //<editor-fold defaultstate="collapsed" desc="IMPORTS">
 import app.Main;
 import config.AppConfig;
-import controller.TestCenterController;
+import controller.MainController;
 import input.ReadTemplate;
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,7 +44,7 @@ public class Utils {
                     + constructWordDocumentFileName(templateData));
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TestCenterController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return outputStream;
     }
@@ -60,7 +60,7 @@ public class Utils {
                     + constructWordDocumentFileName(formData, targetproject));
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TestCenterController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return outputStream;
     }
@@ -76,7 +76,7 @@ public class Utils {
                     + wordFileName);
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TestCenterController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return outputStream;
     }
@@ -92,7 +92,7 @@ public class Utils {
         try {
             outputStream = new FileOutputStream(consrtructedPath);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TestCenterController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return outputStream;
@@ -110,7 +110,7 @@ public class Utils {
             outputStream = new FileOutputStream(file);
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TestCenterController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return outputStream;
     }

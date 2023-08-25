@@ -5,7 +5,7 @@ import app.Main;
 import config.AppConfig;
 import static config.AppConfig.CONTENT_FADE_IN_DURATION;
 import static config.AppConfig.CONTENT_FADE_OUT_DURATION;
-import controller.TestCenterController;
+import controller.MainController;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -32,7 +32,6 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import model.Command;
-import model.DeleteUserCommand;
 //</editor-fold>
 
 public class FXWindowUtils {
@@ -214,7 +213,7 @@ public class FXWindowUtils {
 
     public static void addUserInfoToDragPane(AnchorPane dragPane) {
         Font font1 = Font.loadFont(Main.class.getResourceAsStream("/font/perpetua.ttf"), 16);
-        Label userLabel = new Label("Belépve: " + TestCenterController.userLoggedIn.getFullname());
+        Label userLabel = new Label("Belépve: " + MainController.userLoggedIn.getFullname());
         userLabel.setFont(font1);
         dragPane.getChildren().add(userLabel);
         userLabel.setLayoutX(200);
@@ -225,7 +224,8 @@ public class FXWindowUtils {
 
     public static void addVersionInfoToDragPane(AnchorPane dragPane) {
         Font font1 = Font.loadFont(Main.class.getResourceAsStream("/font/perpetua.ttf"), 16);
-        Label versionLabel = new Label("v." + Main.class.getPackage().getImplementationVersion());
+        Label versionLabel = new Label("v" + (Main.class.getPackage().getImplementationVersion()==null? "1.2" : Main.class.getPackage().getImplementationVersion()));
+
         versionLabel.setFont(font1);
         dragPane.getChildren().add(versionLabel);
         versionLabel.setLayoutX(110);

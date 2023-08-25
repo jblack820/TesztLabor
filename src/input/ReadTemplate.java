@@ -12,23 +12,17 @@ public class ReadTemplate {
 
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(resourceName).getFile());
-        System.out.println("File exists: " + file.exists());
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream(file);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Thread: " + Thread.currentThread().getName());
-        boolean b =  inputStream!=null;
-        System.out.println("Fileinputstream ready:" + b);
         try {
             document = new XWPFDocument(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("beolvasta");
-
         return document;
     }
 

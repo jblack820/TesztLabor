@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="360.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/splash2.jpg" />
+                  <Image url="/images/splash2.jpg" />
                </image>
             </ImageView>
             <Label fx:id="lbllLoading" layoutX="14.0" layoutY="315.0" prefHeight="18.0" prefWidth="153.0" styleClass="preloader-label" stylesheets="@../css/stylesheet.css" text="Label" />

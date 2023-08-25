@@ -222,7 +222,6 @@ public class JsonUtils {
         }
 
         writeUsersJSONArrayToFile(jsonArray);
-        System.out.println("Users saved");
     }
 
     static void mapUserToJSON(User user, JSONObject jobj) {
@@ -297,11 +296,9 @@ public class JsonUtils {
         }
 
         writeDevicesJSONArrayToFile(jsonArray);
-        System.out.println("Devices list saved");
     }
 
     static void mapDeviceToJSON(TestDevice device, JSONObject jobj) {
-        System.out.println("Device: " + device.toString());
         jobj.put("name", device.getName());
         jobj.put("brand", device.getBrand());
         jobj.put("model", device.getModel());

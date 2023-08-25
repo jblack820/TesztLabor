@@ -1,13 +1,11 @@
 package app;
 
 
-import com.sun.javafx.application.LauncherImpl;
-import controller.TestCenterController;
+import controller.MainController;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import testcenterfx.LauncherPreloader;
-import testcenterfx.PreloaderFXMLController;
+import controller.LauncherPreloader;
+import controller.PreloaderFXMLController;
 
 /**
  *
@@ -15,7 +13,7 @@ import testcenterfx.PreloaderFXMLController;
  */
 public class Main extends Application {     
 
-    public static TestCenterController controller = new TestCenterController();
+    public static MainController controller = new MainController();
     
     public static Stage primaryStage = null;
 

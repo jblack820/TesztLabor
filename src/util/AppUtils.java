@@ -19,7 +19,6 @@ public class AppUtils {
         File directory = new File(path + name + "//");
         if (!directory.exists()) {
             directory.mkdirs();
-            System.out.println("Folder created: " + name);
         } else {
             System.out.println("Folder creating failed: " + name);
         }

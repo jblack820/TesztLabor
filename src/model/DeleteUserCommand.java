@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
-import testcenterfx.UsersPageController;
+import controller.UsersPageController;
 import util.FXWindowUtils;
 
 /**
