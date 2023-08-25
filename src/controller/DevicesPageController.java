@@ -434,7 +434,8 @@ public class DevicesPageController implements Initializable {
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Misc Utils">
     private void goToPage(String page, ActionEvent event) throws IOException {
-        Parent nextRoot = FXMLLoader.load(getClass().getResource(page));
+        System.out.println(page);
+        Parent nextRoot = FXMLLoader.load(getClass().getResource("../view/"+page));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXWindowUtils.initNodeFadeOutFX(CONTENT_FADE_OUT_DURATION, contentPane, 1.0, 0.01);
         FXWindowUtils.delayAndFadeInNextRoot(stage, nextRoot, event, CONTENT_FADE_OUT_DURATION);

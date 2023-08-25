@@ -585,7 +585,7 @@ public class CloneProjectController implements Initializable {
     }
 
     private void goToPage(ActionEvent event, String page) throws IOException {
-        Parent nextRoot = FXMLLoader.load(getClass().getResource(page));
+        Parent nextRoot = FXMLLoader.load(getClass().getResource("../view/"+page));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Node contentPane = stage.getScene().getRoot().lookup("#basePane").lookup("#contentPane");
         FXWindowUtils.initNodeFadeOutFX(CONTENT_FADE_OUT_DURATION, contentPane, 1.0, 0.01);
