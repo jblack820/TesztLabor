@@ -1,6 +1,9 @@
 # TesztLabor images:
 
-
+![28 MergingDocuments](https://github.com/jblack820/TesztLabor/assets/90174674/a683f0d7-acaf-4ece-a780-2cce4730516e)
+![27 Creating](https://github.com/jblack820/TesztLabor/assets/90174674/eafae690-2ca0-4b44-a3b6-7e3b8ffd35d0)
+![26 Mapping](https://github.com/jblack820/TesztLabor/assets/90174674/f92de225-d73f-4233-bff6-13123a68b105)
+![25 MainController](https://github.com/jblack820/TesztLabor/assets/90174674/efbd3dec-7736-4f03-a9fa-7c565b87cafc)
 ![24 Project archived](https://github.com/jblack820/TesztLabor/assets/90174674/6b24911d-1797-4aca-8d3f-72e1242ae571)
 ![23 Archive project](https://github.com/jblack820/TesztLabor/assets/90174674/335f7276-6dc1-41ce-b7e1-596d7cca2fec)
 ![22 Test devoce details](https://github.com/jblack820/TesztLabor/assets/90174674/6d1d96ab-459c-4a98-907f-4319f3773a01)
